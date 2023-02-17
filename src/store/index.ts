@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
+// https://api.openweathermap.org/data/2.5/weather?lat=41.678009&lon=44.8325333&appid=67c859d5010465976e7b3e885122af9a
 const store = createStore({
     actions: {
         axiosCountries(ctx, country) {
