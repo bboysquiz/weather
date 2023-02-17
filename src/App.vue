@@ -17,6 +17,19 @@ export default defineComponent({
   components: { Settings, Weather },
   computed: mapGetters(["allCountries", "currentSettingStatus"]),
   methods: mapActions(["toggleSettings"]),
+  setup() {
+    if ('geolocation' in navigator) {
+      console.log(' geolocation is available ');
+      navigator.geolocation.getCurrentPosition((position) => {
+
+        console.log(position);
+        console.log(position.coords.latitude, position.coords.longitude);
+      });
+    } else {
+      console.log(' geolocation is NOT available ');
+      /* geolocation IS NOT available */
+    }
+  }
 })
 </script>
 
@@ -27,7 +40,7 @@ body
   padding: 0
   margin: 0
   outline: 0
-  
+
 .widget
   &__container
     width: 250px
